@@ -1,0 +1,256 @@
+body {
+    min-width: 320px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    margin: 0;
+    height: 15%;
+    font-family: 'Righteous', cursive;
+    font-size: 3em;
+
+    background-color: rgba(0, 0, 0, 0.9);
+    color: rgb(247, 239, 232);
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+
+    height: 85%;
+    font-family: 'Righteous', cursive;
+    font-size: xx-large;
+
+    color: black;
+}
+
+.result {
+    align-self: center;
+    padding: 12px;
+}
+
+.game-board {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 50px black;
+
+    background-image: linear-gradient(rgba(2, 18, 8, 0.2), rgba(2, 18, 8, 0.2)),url('./assets/images/bj.png');
+    background-size: cover;
+}
+
+.game-board h3 {
+    align-self: center;
+    font-size: x-large;
+    background-color: rgba(0, 0, 0, 1);
+    color: rgb(209, 188, 171);
+    padding: 2px;
+    margin-top: -19px;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 10px 50px black;
+}
+
+.your-board, .dealer-board {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 1;
+    height: 450px;
+}
+
+.your-board {
+   border-right: 1px solid black;
+}
+
+.dealer-board {
+    border-left: 1px solid black;
+}
+
+#your-cards, #dealer-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.buttons .btn {
+    margin: 2px;
+    width: 100px;
+    margin-top: -18px;
+    background-color: black;
+    border: none !important;
+    transition: .2s linear;
+}
+
+#hit-button {
+    color: rgb(117, 255, 71);
+}
+
+#stand-button {
+    color: rgb(252, 213, 56);
+}
+
+#deal-button {
+    color: rgb(255, 61, 61);
+}
+
+.btn:hover, .btn:active {
+    opacity: 0.8;
+    /* box-shadow: 0px 10px 50px black  */
+}
+
+.btn:focus {
+    box-shadow: none !important;
+    background-color: black !important;
+}
+
+.btn[disabled]{
+    color: darkgray !important;
+    opacity: 0.6;
+  }
+
+.score-board{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+table {
+    text-align: center;
+    margin: 10px;
+    margin-top: 40px;
+    flex: 1;  
+    box-shadow: 0px 10px 50px black;
+    background-color:rgba(2, 18, 8, 0.9); 
+}
+
+th:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    opacity: 0.8;
+}
+
+th, tr, td {
+    padding: 5px;
+}
+
+td, #your-score, #dealer-score {
+    font-family: 'Audiowide', cursive;
+}
+
+.wins-header:after, #wins {
+    color: rgba(118, 197, 219, 1);
+    border-bottom: 1px solid  rgba(118, 197, 219, 1);
+}
+
+.losses-header:after, #losses {
+    color: rgba(255, 157, 135, 1);
+    border-bottom: 1px solid rgba(255, 157, 135, 1);
+}
+
+.draws-header:after, #draws {
+    color: rgba(196, 162, 47, 1);
+    border-bottom: 1px solid  rgba(196, 162, 47, 1);
+}
+
+#image {
+    width: 80px;
+    height: 120px;
+    margin: 10px;
+    transition: .2s linear;
+}
+
+#reset-button {
+    display: flex;
+    justify-content: center;
+    margin: 5px auto;
+    width: 25%;
+    background-color:rgba(2, 18, 8, 0.9); 
+}
+
+@media (max-device-width : 800px) {
+   .header {
+        height: 5%;
+        font-size: 1.5em;
+    }
+    .body {
+        margin: 10px;
+        height: 95%;
+        font-size: large;
+    }
+    .result {
+        margin-bottom: 20px;
+    }
+    .game-board h3 {
+        font-size: small;
+        margin-top:  -10px;
+        width: 75%;
+        border-radius: 5px;
+    }
+    .score-board {
+        width: 100%;
+    }
+    table{
+        margin-top: 20px;
+    }
+    #image {
+        width: 70px;
+        height: 100px;
+        margin: 1px; 
+    }
+}
+
+@media (min-device-width: 801px) and (max-device-width: 1200px) {
+    #image {
+        width: 80px;
+        height: 110px;
+        margin: 3px; 
+    }
+}
+
+@media (max-device-width: 490px) {
+    #image {
+        width: 50px;
+        height: 75px;
+        margin: 1px; 
+    }
+    #reset-button {
+        width: 50%;
+    }
+}
+
+@media (max-device-width: 333px) {
+    .buttons .btn{
+        margin-top: 2px;
+    }
+}
+
+@media (max-device-width: 1024px) {
+    .header {
+        height: 10%;
+    }
+    .body {
+        height: 90%;
+    }
+}
+    

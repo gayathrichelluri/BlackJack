@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <title>BlackJack</title>
+</head>
+<body>
+    <h3 class="header">BlackJack</h3>
+    <div class="body">
+        <div class="result" id="result">
+           <span>Let's Play!</span>
+        </div>
+        <div class="container game-board">
+            <div class="your-board">
+                <h3>YOU - <span id="your-score">0</span></h3>
+                <div id=your-cards></div>
+            </div>
+            <div class="dealer-board">
+                <h3>DEALER - <span id="dealer-score">0</span></h3>
+                <div id=dealer-cards></div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="btn btn-primary" id="hit-button">Hit</button>
+            <button class="btn btn-warning" id="stand-button">Stand</button>
+            <button class="btn btn-danger" id="deal-button">Deal</button>
+        </div>
+        <div class="score-board">
+            <table id = "wins">
+                <tr>
+                    <th class="wins-header">Wins</th>   
+                </tr>
+                <tr>
+                    <td><span id="wins-score">0</span></td>
+                </tr>
+            </table>
+            <table id = "losses">
+                <tr>
+                    <th class="losses-header">Losses</th>   
+                </tr>
+                <tr>
+                    <td><span id="losses-score">0</span></td>
+                </tr>
+            </table>
+            <table id = "draws">
+                <tr>
+                    <th class="draws-header">Draws</th>   
+                </tr>
+                <tr>
+                    <td><span id="draws-score">0</span></td>
+                </tr>
+            </table>
+        </div>
+        <button class="btn btn-secondary" id="reset-button">Reset scores?</button>
+    </div>
+    <script src = "script.js"></script>
+</body>
+</html>
