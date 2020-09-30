@@ -229,6 +229,13 @@ td, #your-score, #dealer-score {
 }
 
 @media (max-device-width: 490px) {
+    .body {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .your-board, .dealer-board {
+        height: 350px;
+    }
     #image {
         width: 50px;
         height: 75px;
@@ -239,7 +246,7 @@ td, #your-score, #dealer-score {
     }
 }
 
-@media (max-device-width: 333px) {
+@media (max-device-width: 3px) {
     .buttons .btn{
         margin-top: 2px;
     }

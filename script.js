@@ -16,11 +16,14 @@ document.querySelector('#stand-button').addEventListener("click", blackJackStand
 document.querySelector('#deal-button').addEventListener("click", blackJackDeal);
 document.querySelector('#reset-button').addEventListener("click", resetScoreBoard);
 
+//Disable deal button
+disableButton('#deal-button', true);
+
 function blackJackHit() {
     if(activePlayer !== YOU)
         activePlayer = YOU;
 
-    if(activePlayer['score'] >= 21)
+    if(activePlayer['score'] >= 21) 
         return;
     
     actions(); 
@@ -63,9 +66,13 @@ function showScore(activePlayer) {
     document.querySelector(activePlayer['scoreSpan']).innerHTML = activePlayer['score'];
 
     if(activePlayer['score'] > 21) {
+        //Show 'BUST!', if the score is greater than 21
         var scoreSpan = document.querySelector(activePlayer['scoreSpan']);
         scoreSpan.innerHTML = 'BUST!';
         scoreSpan.style.color = 'red';
+        
+        //Disable hit button, if the score is greater than 21
+        if(activePlayer === YOU) disableButton('#hit-button', true);
     }
 }
 
@@ -73,21 +80,24 @@ async function blackJackStand() {
     activePlayer = DEALER;
 
     //Disable hit button
-    document.querySelector('#hit-button').disabled = true;
+    disableButton('#hit-button', true);
+
+    //Disable stand button
+    disableButton('#stand-button', true);
 
     while(activePlayer['score'] < 15) {
         actions();
         //sleep for 900ms, so that each action is rendered by some delay
         await sleep(900);
     }
-    
-    //Disable stand button after all the actions are performed
-    document.querySelector('#stand-button').disabled = true;
 
     let result = computeResult();
     computeScoreBoard(result[0]);
     showResult(result);
     showScoreBoard()
+
+    //Enable deal button
+    disableButton('#deal-button', false);
 }
 
 function sleep(ms) {
@@ -146,6 +156,9 @@ function blackJackDeal() {
 
     showScore(DEALER);
     clearCards(DEALER);
+
+    //Disable deal button
+    disableButton('#deal-button', true); 
 }
 
 function clearCards(player) {
@@ -163,8 +176,8 @@ function clearCards(player) {
     document.querySelector('#result').style.color = "inherit";
 
     //Enable both hit and stand buttons
-    document.querySelector('#hit-button').disabled = false;
-    document.querySelector('#stand-button').disabled = false;
+    disableButton('#hit-button', false);
+    disableButton('#stand-button', false);
 
     hitSound.play();
 }
@@ -172,4 +185,8 @@ function clearCards(player) {
 function resetScoreBoard() {
     scoreBoard = {'wins': 0, 'losses': 0, 'draws': 0};
     showScoreBoard();
+}
+
+function disableButton(button, action) {
+    document.querySelector(button).disabled = action;
 }
