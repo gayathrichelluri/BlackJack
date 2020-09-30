@@ -246,7 +246,7 @@ td, #your-score, #dealer-score {
     }
 }
 
-@media (max-device-width: 3px) {
+@media (max-device-width: 389px) {
     .buttons .btn{
         margin-top: 2px;
     }
